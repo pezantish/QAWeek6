@@ -1,0 +1,24 @@
+em{
+    color: blueviolet;
+
+}
+
+p em{
+  color:crimson;
+}
+
+body > footer {
+    color:greenyellow;
+}
+
+h1 + p{
+   color:purple;
+}
+
+h1 ~ p {
+   background-color:grey;
+}
+
+p.hover:hover{
+   background-color:goldenrod;
+}
