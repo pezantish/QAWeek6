@@ -1,0 +1,22 @@
+h1{
+    display:none;
+}
+
+li {
+    display:inline;
+}
+
+strong{
+    display: block;
+}
+
+.outer{
+    position:relative;
+}
+
+.inner{
+    position:absolute;
+    bottom: 10px;
+    right: 0px;
+}
+
