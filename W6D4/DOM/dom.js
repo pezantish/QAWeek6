@@ -1,36 +1,49 @@
 'use strict';
 
 let masterDiv = document.querySelector("#master");
-let clicker = document.querySelector("#clicker");
-let save = document.querySelector("#save");
-let counter = 0;
+let clicker = document.querySelector("#clicker"); //button
+let save = document.querySelector("#save"); //button
+let reset = document.querySelector("#reset"); //button
 
-// saveDiv.id = "saveDiv";
+let saveDiv = document.createElement("div");
+saveDiv.style.padding = "40px";
+saveDiv.style.position="absolute";
+saveDiv.style.top= "50px";
+saveDiv.style.right= "500px"; 
+saveDiv.style.color="red";
+
+let childDiv = document.createElement("div");
+childDiv.style.padding = "40px";
+childDiv.style.position="absolute";
+childDiv.style.top= "50px";
+childDiv.style.left= "50px"; 
+childDiv.style.color="blue";
+
+let heading1 = document.createElement("h1");
+let heading2 = document.createElement("h1");
+saveDiv.appendChild(heading2);
+childDiv.appendChild(heading1);
+masterDiv.appendChild(saveDiv);
+masterDiv.appendChild(childDiv);
+
+let counter = 0;
 
 let addToPage = () => {
     counter++;
-    let childDiv = document.createElement("div");
-    let heading = document.createElement("h1");
-    let countText = document.createTextNode(String(counter));
-    heading.appendChild(countText);
-    childDiv.appendChild(heading);
-    masterDiv.appendChild(childDiv);
+    heading1.textContent=String(counter);
 }
 
 let saveToPage = () => {
-    let saveDiv = document.createElement("div");
-    saveDiv.style.padding = "40px";
-    saveDiv.style.position="absolute";
-    //saveDiv.style.top= "10px";
-    saveDiv.style.right= "500px"; 
-    saveDiv.style.color="red";
-    let heading = document.createElement("h1");
-    heading.id = 'heading';
-    heading.innerHTML = String(counter);
-    //document.getElementById("heading").innerText = String(counter);
-    saveDiv.appendChild(heading);
-    masterDiv.appendChild(saveDiv);
+    heading2.id="heading2";
+    heading2.textContent = String(counter);
 }
+
+let resetCount = () => {
+    counter = 0;
+    heading1.textContent=String(counter);
+}
+
 clicker.addEventListener("click", addToPage);
 save.addEventListener("click", saveToPage);
+reset.addEventListener("click", resetCount);
 
