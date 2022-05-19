@@ -1,4 +1,4 @@
-`use strict`
+'use strict'
 //1
 let A;
 for(A = 100; A<=200; A++){
