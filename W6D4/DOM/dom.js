@@ -1,32 +1,40 @@
 'use strict';
 
 let masterDiv = document.querySelector("#master");
+let buttonDiv = document.querySelector("#buttons");
+//buttonDiv.style.padding = "40px";
+buttonDiv.style.position= "absolute";
+//buttonDiv.style.left = "50%";
+buttonDiv.style.right = "39%";
+buttonDiv.style.top = "45%";
+//buttonDiv.style.right= "500px"; 
 let clicker = document.querySelector("#clicker"); //button
 let save = document.querySelector("#save"); //button
 let reset = document.querySelector("#reset"); //button
 
 let saveDiv = document.createElement("div");
-saveDiv.style.padding = "40px";
 saveDiv.style.position="absolute";
-saveDiv.style.top= "50px";
-saveDiv.style.right= "500px"; 
+saveDiv.style.top= "49%";
+saveDiv.style.right= "40%"; 
 saveDiv.style.color="red";
 
 let childDiv = document.createElement("div");
-childDiv.style.padding = "40px";
 childDiv.style.position="absolute";
-childDiv.style.top= "50px";
-childDiv.style.left= "50px"; 
+childDiv.style.top= "30%";
+childDiv.style.left= "50%"; 
 childDiv.style.color="blue";
 
 let heading1 = document.createElement("h1");
 let heading2 = document.createElement("h1");
+heading1.textContent = "0";
+heading2.textContent = "Max reached: 0";
 saveDiv.appendChild(heading2);
 childDiv.appendChild(heading1);
 masterDiv.appendChild(saveDiv);
 masterDiv.appendChild(childDiv);
 
 let counter = 0;
+let maxCounter = 0;
 
 let addToPage = () => {
     counter++;
@@ -34,8 +42,10 @@ let addToPage = () => {
 }
 
 let saveToPage = () => {
-    heading2.id="heading2";
-    heading2.textContent = String(counter);
+    if (maxCounter < counter){
+        maxCounter=counter;
+    }
+    heading2.textContent = `Max reached: ${String(maxCounter)}`;
 }
 
 let resetCount = () => {
